@@ -1,91 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="kk">
 <head>
-  <title>VOSCORP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task - Grid</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background: #f5f5f5;
+  }
+  .gallery img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .landing {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "main sidebar"
+      "footer footer";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    padding: 10px;
+  }
+  .landing header { grid-area: header; background: #a2d2ff; padding: 20px; }
+  .landing main { grid-area: main; background: #f0f0f0; padding: 20px; }
+  .landing aside { grid-area: sidebar; background: #ddd; padding: 20px; }
+  .landing footer { grid-area: footer; background: #a2e3a2; padding: 20px; }
+
+  .profile-card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    align-items: center;
+  }
+  .profile-card img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  .profile-card .info h2 {
+    margin: 0 0 10px 0;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: #f0f0f0;
+  }
+  .cards-grid .card {
+    background: #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
 </head>
-<body bgcolor="black" text="#007bff">
-<table align="center" border="1" width="1600px" height="100%">
-    <tr>
-        <td align="center" bgcolor="white">
-            <h1>Добро пожаловать на сайт Создателя</h1>
-        </td>
-    </tr>
-    <tr>
-        <td align="center" bgcolor="white">
-            <h2>
-            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Главная&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> |
-            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;О Создателе&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> |
-            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Библиотека&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> |
-            <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Контакты&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-            </h2>
-        </td>
-    </tr>
-    <tr>
-        <td align="center" bgcolor="white">
-            <img src="voscorp.png" alt="photo">
-            <h2>VOSCORP Компания будущего, наша компания занимается созданием AI и до мелких софтов</h2>
-        </td>
-    </tr>
-    <tr>
-        <td align="left" bgcolor="white">
-            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;О Создателе</h2>
-            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Меня зовут Ерасыл Құттыбаев, я 16-ти летний разработчик-инженер AI и владелец компаний VOSCORP. С ранних лет проявлял интерес к IT.</h3>
-            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Начинал я свою карьеру от простых телеграм ботов, потом сайты, потом и освоил робототехнику. Моя цель создать роботов и софтов интегрирую к ним ИИ.</h3>
-        </td>
-    </tr>
-    <tr>
-        <td align="left" bgcolor="white">
-            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Библиотека</h2>
-            <h3></h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <table width="100%" cellpadding="5">
-                <tr>
-                    <td align="left" bgcolor="white">
-                        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Drones are security guards. Soon, the creator will control everyone, and no one will stop him :)</h3>
-                    </td>
-                    <td align="left" bgcolor="white">
-                        <img src="drone.jpg" alt="drone photo">
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <table width="100%" cellpadding="5">
-                <tr>
-                    <td align="left" bgcolor="white">
-                        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mega all-powerful hands can destroy, kill, and do illegal things. If you have 98% anger, then this thing is made for you. </h3>
-                        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The creator himself tests the first prototype. Let's test it and kill a few targets :)</h3>
-                    </td>
-                    <td align="left" bgcolor="white">
-                        <img src="404.jpg" alt="404 error">
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td align="center" bgcolor="white">
-            <h3>+7 775 911 11 11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;info@voscorp.kz</h3>
-            
-        </td>
-    </tr>
-    <tr>
-        <td align="center" bgcolor="white">
-           <marquee behavior="scroll" scrollamount="6">
-                <p>&copy; 1999–2025 VOSCORP. Все права защищены.</p>
-            </marquee> 
-        </td>
-    </tr>
-</table>
-  <center>
-    
-  </center>
+<body>
+
+<h1>1. 3x3 фотосетка</h1>
+<div class="gallery">
+  <img src="https://picsum.photos/200?random=1" alt="">
+  <img src="https://picsum.photos/200?random=2" alt="">
+  <img src="https://picsum.photos/200?random=3" alt="">
+  <img src="https://picsum.photos/200?random=4" alt="">
+  <img src="https://picsum.photos/200?random=5" alt="">
+  <img src="https://picsum.photos/200?random=6" alt="">
+  <img src="https://picsum.photos/200?random=7" alt="">
+  <img src="https://picsum.photos/200?random=8" alt="">
+  <img src="https://picsum.photos/200?random=9" alt="">
+</div>
+
+<h1>2. Лэндинг макеті</h1>
+<div class="landing">
+  <header>Header</header>
+  <main>Main контент</main>
+  <aside>Sidebar</aside>
+  <footer>Footer</footer>
+</div>
+
+<h1>3. Профиль карточкасы</h1>
+<div class="profile-card">
+  <img src="https://picsum.photos/150" alt="Фото">
+  <div class="info">
+    <h2>Аты-жөні</h2>
+    <p>Профиль туралы қысқаша ақпарат.</p>
+  </div>
+</div>
+
+<h1>4. Адаптивті карточкалар торы</h1>
+<div class="cards-grid">
+  <div class="card">Карточка 1</div>
+  <div class="card">Карточка 2</div>
+  <div class="card">Карточка 3</div>
+  <div class="card">Карточка 4</div>
+  <div class="card">Карточка 5</div>
+  <div class="card">Карточка 6</div>
+</div>
 
 </body>
 </html>
-
