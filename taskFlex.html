@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task - Flex</title>
+<style>
+  body {
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(270deg, #007BFF, #00FFA3, #FF00E0, #6610F2);
+    background-size: 800% 800%;
+    background-repeat: no-repeat;
+    animation: neonGradient 10s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    box-shadow: 0 0 100px #007BFF inset;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes neonGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+   }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+  }
+
+  .block {
+    display: flex;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 7px 5px;
+  }
+
+  .products {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  .card {
+    flex: 1 1 200px;
+    padding: 20px;
+    background: #ddd;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .center-block-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .center-block {
+    padding: 30px;
+    background: #a2d2ff;
+    border-radius: 10px;
+  }
+
+  .chat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+  .message {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  .left {
+    background: #ff0000;
+    align-self: flex-start;
+  }
+  .right {
+    background: #007BFF;
+    align-self: flex-end;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 1. Меню -->
+  <nav class="menu">
+    <a class="block" href="#">Басты</a>
+    <a class="block" href="#">Тауарлар</a>
+    <a class="block" href="#">Біз туралы</a>
+    <a class="block" href="#">Байланыс</a>
+  </nav>
+
+  <!-- 2. Тауар карточкалары -->
+  <div class="products">
+    <div class="card">Тауар 1</div>
+    <div class="card">Тауар 2</div>
+    <div class="card">Тауар 3</div>
+  </div>
+
+  <!-- 3. Блок ортасында -->
+  <div class="center-block-wrapper">
+    <div class="center-block">
+      Мен орталықтамын
+    </div>
+  </div>
+
+  <!-- 4. Чат хабарламалары -->
+  <div class="chat">
+    <div class="message left">Сәлем!</div>
+    <div class="message right">Сәлем, қалайсың?</div>
+    <div class="message left">Жақсы, рақмет!</div>
+  </div>
+
+</body>
+</html>
