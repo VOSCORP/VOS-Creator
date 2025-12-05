@@ -1,0 +1,43 @@
+:root {
+  --primary-blue: #4182f9;
+  --bg-color: #f9f9f9;
+  --text-main: #000000;
+  --text-secondary: #ada7a7;
+  --text-dark-blue: #3e435d;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eef2f5; /* Fallback */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, select {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}

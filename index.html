@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOS - Profile</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="vos.png" type="image/png">
+  <link rel="stylesheet" href="global.css">
+  <style id="sections-styles">
+/* CSS for section section:Dashboard */
+#dashboard-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dashboard-card {
+    width: 100%;
+    max-width: 1348px;
+    background-color: var(--bg-color);
+    border-radius: 36px;
+    box-shadow: 0px 4px 38.8px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    overflow: hidden;
+    min-height: 900px;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 73px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 148px; /* Align with design spacing */
+    flex-shrink: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .active-bg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 54px;
+    background: linear-gradient(90deg, rgba(65, 130, 249, 1) 0%, rgba(65, 130, 249, 0.01) 100%);
+    opacity: 0.2;
+    border-left: 3px solid var(--primary-blue);
+  }
+
+  .nav-icon {
+    width: 22px;
+    height: 22px;
+    z-index: 1;
+  }
+  
+  .icon-wrapper {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Content Area */
+  .content-area {
+    flex: 1;
+    padding: 30px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .welcome-text h1 {
+    font-size: 24px;
+    color: var(--text-dark-blue);
+    margin: 0 0 5px 0;
+    font-weight: 600;
+  }
+
+  .welcome-text p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .search-bar {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    width: 330px;
+    height: 48px;
+  }
+
+  .search-bar img {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+  }
+
+  .search-bar input {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  .notification-btn {
+    width: 48px;
+    height: 48px;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .profile-pic {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Profile Panel */
+  .profile-panel {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding-bottom: 40px;
+    flex: 1;
+  }
+
+  .panel-banner {
+    width: 100%;
+    height: 94px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .panel-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profile-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 40px;
+    margin-top: -30px; /* Pull up to overlap/align */
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .profile-identity {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .avatar {
+    width: 94px;
+    height: 94px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--white); /* Optional visual separation */
+  }
+
+  .identity-text {
+    margin-bottom: 10px;
+  }
+
+  .identity-text h2 {
+    font-size: 20px;
+    margin: 0 0 5px 0;
+    color: var(--text-main);
+  }
+
+  .identity-text p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--text-main);
+    opacity: 0.5;
+  }
+
+  .edit-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* Form */
+  .profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 25px;
+    padding: 0 40px;
+    margin-bottom: 40px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    color: var(--text-main);
+    opacity: 0.8;
+  }
+
+  .input-wrapper {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    position: relative;
+  }
+
+  .input-wrapper input, .input-wrapper select {
+    color: var(--text-main);
+    opacity: 0.6;
+    font-size: 14px;
+    appearance: none;
+  }
+
+  .dropdown-arrow {
+    position: absolute;
+    right: 15px;
+    pointer-events: none;
+    width: 22px;
+    height: 22px;
+    opacity: 0.5;
+  }
+
+  /* Email Section */
+  .email-section {
+    padding: 0 40px;
+  }
+
+  .email-section h3 {
+    font-size: 16px;
+    margin: 0 0 20px 0;
+    color: var(--text-main);
+  }
+
+  .email-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .email-icon {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .email-icon .icon-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-blue);
+    opacity: 0.1;
+    border-radius: 50%;
+  }
+  
+  .email-icon img {
+    position: relative;
+    width: 22px;
+    height: 22px;
+  }
+
+  .email-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email-text {
+    font-size: 14px;
+    color: var(--text-main);
+    font-weight: 500;
+  }
+
+  .email-date {
+    font-size: 12px;
+    color: var(--text-main);
+    opacity: 0.5;
+  }
+
+  .add-email-btn {
+    background-color: rgba(65, 130, 249, 0.1);
+    color: var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .dashboard-card {
+      flex-direction: column;
+      height: auto;
+      border-radius: 20px;
+    }
+    
+    .sidebar {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      padding: 10px;
+      justify-content: space-around;
+    }
+    
+    .nav-item {
+      width: auto;
+      height: 40px;
+      margin: 0;
+    }
+    
+    .active-bg {
+      display: none;
+    }
+
+    .content-area {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .profile-form {
+      grid-template-columns: 1fr;
+    }
+    
+    .dashboard-header {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .header-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    .search-bar {
+      flex: 1;
+    }
+
+    .profile-info-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    
+    .edit-btn {
+      align-self: flex-start;
+    }
+  }
+  </style>
+</head>
+<body>
+<section id="dashboard-section">
+  <!-- Background Image -->
+  <div class="bg-image">
+    <img src="bdn.png" alt="Background">
+  </div>
+
+  <!-- Main Dashboard Card -->
+  <div class="dashboard-card">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="nav-item active">
+        <div class="active-bg"></div>
+        <img src="I1_83_436_19174.svg" alt="Home" class="nav-icon">
+      </div>
+      <div class="nav-item">
+        <img src="I1_82_436_19182.svg" alt="Graph" class="nav-icon">
+      </div>
+      <div class="nav-item">
+        <img src="I1_84_436_19188.svg" alt="Medal" class="nav-icon">
+      </div>
+      <div class="nav-item">
+        <div class="icon-wrapper">
+          <!-- merged image -->
+          <img src="I1_85_436_19196.svg" alt="Chat" style="position: absolute;">
+          <img src="I1_85_436_19198.svg" alt="Chat" style="position: absolute;">
+        </div>
+      </div>
+      <div class="nav-item">
+        <img src="I1_86_436_19205.svg" alt="Settings" class="nav-icon">
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content-area">
+      
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div class="welcome-text">
+          <h1>Welcome, Creator</h1>
+          <p>Friday, 05 December 2025</p>
+        </div>
+        
+        <div class="header-actions">
+          <div class="search-bar">
+            <img src="I1_78_12_1523.svg" alt="Search">
+            <input type="text" placeholder="Search">
+          </div>
+          
+          <div class="notification-btn">
+            <img src="I1_71_14_1777.svg" alt="Notifications">
+          </div>
+          
+          <div class="profile-pic">
+            <img src="vos.png" alt="Profile">
+          </div>
+        </div>
+      </header>
+
+      <!-- Profile Panel -->
+      <div class="profile-panel">
+        <!-- Banner -->
+        <div class="panel-banner">
+          <img src="bdn.png" alt="Banner">
+        </div>
+
+        <!-- Profile Header Info -->
+        <div class="profile-info-header">
+          <div class="profile-identity">
+            <div class="avatar">
+              <img src="vos.png" alt="Avatar">
+            </div>
+            <div class="identity-text">
+              <h2>VOS Enterprice</h2>
+              <p>VOSCORP@gmail.com</p>
+            </div>
+          </div>
+          <button class="edit-btn">Edit</button>
+        </div>
+
+        <!-- Form Section -->
+        <form class="profile-form">
+          <!-- Row 1 -->
+          <div class="form-group">
+            <label>Full Name</label>
+            <div class="input-wrapper">
+              <input type="text" placeholder="Your First Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Nick Name</label>
+            <div class="input-wrapper">
+              <input type="text" placeholder="Your First Name">
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="form-group">
+            <label>Gender</label>
+            <div class="input-wrapper select-wrapper">
+              <select>
+                <option>Your First Name</option>
+              </select>
+              <img src="I1_110_63_1560.svg" class="dropdown-arrow" alt="arrow">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <div class="input-wrapper select-wrapper">
+              <select>
+                <option>Your First Name</option>
+              </select>
+              <img src="I1_121_63_1560.svg" class="dropdown-arrow" alt="arrow">
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="form-group">
+            <label>Language</label>
+            <div class="input-wrapper select-wrapper">
+              <select>
+                <option>Your First Name</option>
+              </select>
+              <img src="I1_122_63_1560.svg" class="dropdown-arrow" alt="arrow">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Time Zone</label>
+            <div class="input-wrapper select-wrapper">
+              <select>
+                <option>Your First Name</option>
+              </select>
+              <img src="I1_123_63_1560.svg" class="dropdown-arrow" alt="arrow">
+            </div>
+          </div>
+        </form>
+
+        <!-- Email Section -->
+        <div class="email-section">
+          <h3>My email Address</h3>
+          <div class="email-item">
+            <div class="email-icon">
+              <div class="icon-bg"></div>
+              <img src="I1_126_63_1582.svg" alt="SMS">
+            </div>
+            <div class="email-details">
+              <span class="email-text">VOSCORP@gmail.com</span>
+              <span class="email-date">1 month ago</span>
+            </div>
+          </div>
+          
+          <button class="add-email-btn">
+            +Add Email Address
+          </button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</section>
+</body>
+</html>
